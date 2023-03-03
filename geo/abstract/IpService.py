@@ -6,5 +6,5 @@ class IpService:
     def __init__(self, http: HttpService):
         self.http = http
 
-    def get_info(self, ip: Ip) -> Exception | Place:
+    def get_info(self, ip: Ip) -> Exception | Place | None:
         pass

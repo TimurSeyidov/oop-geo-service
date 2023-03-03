@@ -3,7 +3,7 @@ from geo.abstract import IpService
 
 
 class Ip2Me(IpService):
-    def get_info(self, ip: Ip) -> Exception | Place:
+    def get_info(self, ip: Ip) -> Exception | Place | None:
         data = self.http.get('https://api.2ip.me/geo.json', params={'ip': ip.value})
         return Place(
             ip=ip,

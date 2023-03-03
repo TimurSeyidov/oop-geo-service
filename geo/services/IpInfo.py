@@ -7,7 +7,7 @@ class IpInfo(IpService):
         super().__init__(http)
         self.__token = token
 
-    def get_info(self, ip: Ip) -> Exception | Place:
+    def get_info(self, ip: Ip) -> Exception | Place | None:
         url = f'https://ipinfo.io/{ip.value}'
         data = self.http.get(
             url=url,
