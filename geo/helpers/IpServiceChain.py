@@ -1,5 +1,5 @@
 from geo import Ip, Place
-from geo.abstract import IpService, HttpService
+from geo.abstract import IpService, HttpService, Cache
 
 
 class IpServiceChain(IpService):
@@ -18,6 +18,15 @@ class IpServiceChain(IpService):
             if value:
                 checked += 1
         return checked / len(properties)
+
+    @property
+    def cache(self) -> Cache:
+        return self.__services[0].cache
+
+    @cache.setter
+    def cache(self, value: Cache):
+        for service in self.__services:
+            service.cache = value
 
     def get_info(self, ip: Ip) -> Exception | Place | None:
         results = list()
