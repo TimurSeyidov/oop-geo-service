@@ -35,7 +35,6 @@ class IpServiceChain(IpService):
             try:
                 place = service.get_info(ip)
                 weight = self.__calculate_weight(place)
-                print(service.__class__.__name__, weight)
                 if weight == 1:
                     return place
                 results.append((weight, place))

@@ -16,7 +16,7 @@ class Ip2Me(IpService):
         return self.__cache_expired__
 
     def get_remote_data(self, ip: Ip) -> Exception | Dict:
-        return self.http.get('https://api.2ip.me/geo.json', params={'ip': ip.value})
+        return self.http.get('https://api.2ip.me/geo.json', params={'ip': ip.value}, timeout=3)
 
     def convert(self, ip: Ip, data: Dict) -> Place:
         return Place(

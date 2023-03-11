@@ -23,3 +23,14 @@ class Place:
                 self.point,
             ]))
         )
+
+    @property
+    def dict(self):
+        return {
+            'ip': self.ip.value,
+            'country': self.country,
+            'region': self.region,
+            'city': self.city,
+            'zip': self.zip,
+            'point': self.point.dict
+        }

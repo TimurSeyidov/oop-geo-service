@@ -17,6 +17,13 @@ class Point:
     def __repr__(self):
         return f'{self.__class__.__name__}({self.lat}, {self.lng})'
 
+    @property
+    def dict(self):
+        return {
+            'lat': self.lat,
+            'lng': self.lng
+        }
+
     def __sub__(self, point) -> float:
         RAD = 6372795
         lat1 = self.lat * pi / 180
